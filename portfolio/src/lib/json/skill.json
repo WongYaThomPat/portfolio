@@ -1,0 +1,17 @@
+[
+    { "Tool": "MATLAB", "Lang": "MATLAB", "Value": 2.5, "Color": "#0076A8" },
+    { "Tool": "Blender", "Lang": "Other", "Value": 6.0, "Color": "#E87D0D" },
+    { "Tool": "Godot Engine", "Lang": "Gdscript", "Value": 4.0, "Color": "#478CBF" },
+    { "Tool": "Pytorch", "Lang": "Python", "Value": 3.5, "Color": "#EE4C2C" },
+    { "Tool": "Scikit-learn", "Lang": "Python", "Value": 5.0, "Color": "#F7931E" },
+    { "Tool": "Open3D", "Lang": "Python", "Value": 3.0, "Color": "#00B5AD" },
+    { "Tool": "OpenCV", "Lang": "Python", "Value": 7.0, "Color": "#5C3EE8" },
+    { "Tool": "RealSense-SDK", "Lang": "Python", "Value": 3.0, "Color": "#0068B5" },
+    { "Tool": "Xarm-SDK", "Lang": "Python", "Value": 2.6, "Color": "orange" },
+    { "Tool": "Postman", "Lang": "Other", "Value": 2.0, "Color": "#FF6C37" },
+    { "Tool": "Svelte", "Lang": "TypeScript / CSS / HTML", "Value": 3.0, "Color": "#FF3E00" },
+    { "Tool": "React", "Lang": "TypeScript / CSS / HTML", "Value": 2.5, "Color": "#61DAFB" },
+    { "Tool": "Arduino IDE", "Lang": "C++", "Value": 3.0, "Color": "#00979D" },
+    { "Tool": "Unity Engine", "Lang": "C#", "Value": 2.5, "Color": "#222C37" },
+    { "Tool": "Autodesk Fusion", "Lang": "Other", "Value": 3.0, "Color": "#0084C5" }
+]
