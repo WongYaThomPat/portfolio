@@ -13,5 +13,6 @@
     { "Tool": "React", "Lang": "TypeScript / CSS / HTML", "Value": 2.5, "Color": "#61DAFB" },
     { "Tool": "Arduino IDE", "Lang": "C++", "Value": 3.0, "Color": "#00979D" },
     { "Tool": "Unity Engine", "Lang": "C#", "Value": 2.5, "Color": "#222C37" },
-    { "Tool": "Autodesk Fusion", "Lang": "Other", "Value": 3.0, "Color": "#0084C5" }
+    { "Tool": "Autodesk Fusion", "Lang": "Other", "Value": 3.0, "Color": "#0084C5" },
+    { "Tool": "Overleaf Latex", "Lang": "Other", "Value": 2.0, "Color": "darkgreen" }
 ]

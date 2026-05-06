@@ -10,17 +10,17 @@
     import Viewer from "$lib/components/Viewer.svelte";
     import MediaSlot from '$lib/components/MediaSlot.svelte';
 
-    const filter_files = import.meta.glob<string>(
-        '/src/lib/images/filter/*.png', { eager: true, query: '?url', import: 'default' }
-    );
-
-    let filter_links: string[] = Object.values(filter_files);
-
     const shrimp_files = import.meta.glob<string>(
         '/src/lib/images/shrimp/*.png', { eager: true, query: '?url', import: 'default' }
     );
 
     let shrimp_links: string[] = Object.values(shrimp_files);
+
+    const filter_files = import.meta.glob<string>(
+        '/src/lib/images/filter/*.png', { eager: true, query: '?url', import: 'default' }
+    );
+
+    let filter_links: string[] = Object.values(filter_files);
 
     const cwn_files = import.meta.glob<string>(
         '/src/lib/images/cwn/*.png', { eager: true, query: '?url', import: 'default' }
@@ -35,7 +35,7 @@
     <div class="entry">
         <Viewer model_path="/models/telemed.glb"/>
         <div class="datalog">
-            <p>2025</p>
+            <p>2024 - 2025</p>
             <h2>TELEPALPATION</h2>
             <p>
                 My Capstone Project during my bachelor's degree about teleoperated abdominal palpation.
@@ -49,8 +49,25 @@
             </ul>
         </div>
     </div>
-    
     <div class="entry">
+        <Viewer model_path="/models/shrimp.glb"/>
+        <div class="datalog">
+            <p>2026</p>
+            <h2>SHRIMP SIZE ESTIMATOR</h2>
+            <p>
+                A compact system which is comprised of:
+            </p>
+            <div style="justify-content: center;">
+                <ul class="list-disc list-outside pl-5" style="text-align: left;">
+                    <li>Tiny (510 KB) customized CNN for heatmap detection</li>
+                    <li>Classical Computer Vision framework for real world size estimation</li>
+                </ul>
+            </div>
+        </div>
+        <MediaSlot img_links={shrimp_links} />
+    </div>
+    <div class="entry">
+        <Viewer model_path="/models/filterhome.glb"/>
         <div class="datalog">
             <p>2026</p>
             <h2>BIOMIMETIC AIR FILTER</h2>
@@ -63,25 +80,7 @@
                 <li>Wet and recirculating filtering agent for reusability</li>
             </ul>
         </div>
-        <Viewer model_path="/models/filterhome.glb"/>
         <MediaSlot img_links={filter_links} />
-    </div>
-    <div class="entry">
-        <MediaSlot img_links={shrimp_links} />
-        <div class="datalog" style="text-align: center;">
-            <p style="text-align: center;">2026</p>
-            <h2>SHRIMP SIZE ESTIMATOR</h2>
-            <p>
-                A compact system which is comprised of:
-            </p>
-            <div style="justify-content: center;">
-                <ul class="list-disc list-outside pl-5" style="text-align: left;">
-                    <li>Tiny (510 KB) customized CNN for heatmap detection</li>
-                    <li>Classical Computer Vision framework for real world size estimation</li>
-                </ul>
-            </div>
-        </div>
-        <Viewer model_path="/models/shrimp.glb"/>
     </div>
     <div class='entry'>
         <div class="datalog">
@@ -112,7 +111,7 @@
         flex-direction: row;
         justify-content: center; 
         align-items: center;    
-        gap: 2rem;
+        gap: 0;
         width: 100%;
     }
 
@@ -122,7 +121,7 @@
 
     .entry > :global(*) {
         flex: 1;           
-        max-width: 600px;  
+        max-width: 500px;  
     }
 
     .datalog {

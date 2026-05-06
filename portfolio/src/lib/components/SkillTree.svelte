@@ -5,6 +5,8 @@
     let grouped = $derived(Object.groupBy(data, item => item.Lang))
     let languages = $derived([...Object.keys(grouped)]);
 
+    let hoveredLang = $state<string | null>(null);
+
     let { width = 600, height = 600 } = $props();
     let simulation: d3.Simulation<any, undefined>;
     let nodes: any[] = $state([...data]);
@@ -51,7 +53,6 @@
     });
 
     $effect(() => {
-
         simulation = d3.forceSimulation(nodes)
             .force("charge", d3.forceManyBody().strength(-50))
             .force("radial", d3.forceRadial(0, width / 2, height / 2).strength(0.012))
@@ -67,7 +68,12 @@
 
 <div class='lang-container' style="color: mintcream;">
     {#each languages as lang}
-        <p>{lang}</p>      
+        <button
+            onmouseenter={() => hoveredLang = lang}
+            onmouseleave={() => hoveredLang = null}
+        >
+            {lang}
+        </button>      
     {/each}
 </div>
 <div class='chart-container'>
@@ -76,10 +82,14 @@
             <g>
                 <circle
                     use:draggable={node}
-                    style="cursor: grab;"
+                    style="cursor: grab; transition: r 0.2s ease, fill 0.2s ease;"
                     cx={node.x}
                     cy={node.y}
-                    r={node.Value * 10}
+                    r={
+                        hoveredLang === null 
+                        ? node.Value * 8 
+                        : (node.Lang === hoveredLang ? node.Value * 20 : 0)
+                    }
                     fill={node.Color}
                 />
                 
@@ -89,7 +99,13 @@
                     text-anchor="middle" 
                     dominant-baseline="middle"
                     pointer-events="none"
-                    style="user-select: none; font-size: {5 * node.Value}px; fill: white;"
+                    style="
+                        user-select: none; 
+                        font-size: {
+                            hoveredLang === null ? 5 * node.Value
+                            : (node.Lang === hoveredLang ? 8 * node.Value : 0)
+                        }px; 
+                        fill: white;"
                 >
                     {node.Tool} 
                 </text>
@@ -105,6 +121,14 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .lang-container button {
+        font-size: 18px;
+    }
+
+    .lang-container button:hover {
+        color: rgb(47, 119, 47);
     }
 
     .chart-container {

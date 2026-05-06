@@ -1,13 +1,14 @@
 <script lang="ts">
 	import './layout.css';
 
+	const logo : string = '/ghlg.jpg'
 	let name = "WONGSAPAT THOMYA";
     let letters = name.split('');
 
 	let { children } = $props();
 </script>
 
-<!-- <svelte:head><link rel="icon" href={favicon} /></svelte:head> -->
+<svelte:head><link rel="icon" href={logo} /></svelte:head>
 
 <div class="index">
 	<h1>
@@ -17,13 +18,6 @@
 	</h1>
     
 	<div class='links'>
-		<a 
-			href="https://github.com/WongYaThomPat"
-			target="_blank" 
-			rel="noopener noreferrer"
-		>
-			Github
-		</a>
 		<a 
 			href="contact"
 		>
@@ -38,8 +32,14 @@
 	<a href="about">About</a>
 	<a href="portfolio">Portfolio</a>
 	<a href="education">Education / Experience</a>
-	<a href="contact">Contact</a>
 </nav>
+
+{@render children()} 
+
+<div class='index' style="padding: 2%; justify-content: center;">
+	<p>© 2026 Wongsapat Thomya. All rights reserved.</p>
+</div>
+
 
 <style>
     .index {
@@ -49,13 +49,13 @@
 		justify-content: space-between;
 		align-items: center;
 		background: #242424;
+		color: #e8fff6;
     }
 
 	.index h1 {
         font-weight: 700; 
         font-size: 80px;
         letter-spacing: 2px;  
-    	color: #e8fff6;
         display: flex; 
     }
 
@@ -82,7 +82,7 @@
 	}
 
 	.links a {
-		transition: transform 0.2s ease, color 0.2s ease;
+		transition: font-size 0.2s ease, color 0.2s ease;
 	}
 
 	.links a:hover {
@@ -106,7 +106,7 @@
 		color: white;
 		text-decoration: none;
 		border-radius: 4px;  
-		transition: transform 0.2s ease, color 0.2s ease;
+		transition: background-color 0.2s ease;
 	}
 
 	.navbar a:hover {
@@ -115,4 +115,3 @@
 
 </style>
 
-{@render children()} 

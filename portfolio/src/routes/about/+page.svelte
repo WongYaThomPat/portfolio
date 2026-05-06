@@ -17,16 +17,17 @@
             </span> who specializes in 
             <span>
                 <a href="portfolio" class="link">
-                    manipulating various forms of abstract data into tangible objective visualization.
+                    integrating complex systems to work together and manipulating various forms of abstract data into intuitive visualizations.
                 </a>
             </span>
             My versatility and adaptability allows me to apply my skill to solve problems in multiple field of studies, even those which are non-medical.
+            As you can tell by interacting with the site, my philosophy is to keep my work simple and robust.
         </p>
 
         <h3>Languages</h3>
-        <ul class="list-disc list-outside pl-5 text-3xl">
+        <ul class="list-disc list-outside pl-5 text-xl">
             <li>Thai - Native</li>
-            <li>English - C1</li>
+            <li>English - C1 (Advanced)</li>
         </ul>
 
         <h3>Soft Skills</h3>
@@ -37,7 +38,7 @@
         </ul>
     </div>
     <div class='skill'>
-        <h3>Hard Skills</h3>
+        <h3>Technical Skills</h3>
         <SkillTree />
     </div>
 </div>
@@ -48,14 +49,13 @@
         flex-direction: row;
         margin: 50px auto;
         gap: 60px;
-        padding: 5%;
+        padding: 2%;
         justify-content: center;
-        background-color: rgb(236, 236, 236);
     }
 
     .bio {
         text-align: justify;
-        width: 60vw;
+        width: 40vw;
     }
 
     .bio h2 {
@@ -69,10 +69,11 @@
 
     .link {
         color: rgb(165, 165, 165);
+        transition: color 0.2s ease;
     }
 
     .link:hover {
-        color: rgb(81, 196, 98);
+        color: rgb(47, 119, 47);
     }
 
     .skill {
