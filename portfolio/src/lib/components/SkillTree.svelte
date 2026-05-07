@@ -7,7 +7,7 @@
 
     let hoveredLang = $state<string | null>(null);
 
-    let { width = 600, height = 600 } = $props();
+    let { width = 900, height = 600 } = $props();
     let simulation: d3.Simulation<any, undefined>;
     let nodes: any[] = $state([...data]);
     let lastScrollY = 0;

@@ -2,13 +2,14 @@
     import type { PageProps } from './$types';
 
     let { data }: PageProps = $props();
+    import { fade } from 'svelte/transition';
 
     const email : string = 'bossthomya@gmail.com'
 </script>
 
-<div class='main-container'>
+<div in:fade={{duration:300}} class='main-container'>
     <div class='img-container'>
-        <img  src="/src/lib/images/phonebg.png" alt="phone" style="border-radius:2%">
+        <img  src="/src/lib/images/contact/phonebg.png" alt="phone" style="border-radius:2%">
     </div>
     <div class='link-container'>
         <h1 class='text-5xl' 

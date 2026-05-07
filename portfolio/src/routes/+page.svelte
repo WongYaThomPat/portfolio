@@ -1,8 +1,12 @@
-<div>
+<script>
+    import { fade } from 'svelte/transition';
+</script>
+
+<div in:fade>
     <h2 class="text-6xl">
         Welcome to my Portfolio.
     </h2>
-    <p style="margin-top: 20px;">click on the tabs above to navigate</p>
+    <p style="margin-top: 20px;">- click on the tabs above to navigate -</p>
 </div>
 
 <style>

@@ -2,6 +2,7 @@
     import { fly } from 'svelte/transition';
 
     let { img_links = [] }: { img_links : string[] } = $props();
+
     let idx = $state(0);
     let direction = $state(1);
 
@@ -16,23 +17,23 @@
 {#if img_links.length > 0}
     <div class="carousel-wrapper">
         <div class="carousel-viewport">
-            
+            <button class="btn left" onclick={() => shift_idx(-1)}>↤</button>
             <div class="img-wrapper">
                 {#key idx}
-                    <img 
-                        class="thumbnail" 
-                        src={img_links[idx]} 
-                        alt="Slide {idx + 1}"
-                        in:fly={{ x: direction * 400, duration: 300 }}
-                        out:fly={{ x: -direction * 400, duration: 300 }}
-                    />
+                    <a href={img_links[idx]} target="_blank" rel="noreferrer">
+                        <img 
+                            class="thumbnail" 
+                            src={img_links[idx]} 
+                            alt="Slide {idx + 1}"
+                            style="cursor: zoom-in;"
+                            in:fly={{ x: direction * 400, duration: 300 }}
+                            out:fly={{ x: -direction * 400, duration: 300 }}
+                        />
+                    </a>
                 {/key}
             </div>
-
-            <button class="btn left" onclick={() => shift_idx(-1)}>↤</button>
             <button class="btn right" onclick={() => shift_idx(1)}>↦</button>
         </div>
-        
         <p>{idx + 1} / {img_links.length}</p>
     </div>
 {/if}
@@ -57,6 +58,7 @@
     .img-wrapper {
         width: 100%;
         height: 100%;
+        background-color: rgb(191, 226, 191);
     }
 
     .thumbnail {
@@ -81,10 +83,11 @@
         transition: opacity 0.2s ease;
     }
 
+    .left { left: 10px; }
+    .right { right: 10px; }
+
     .carousel-viewport:hover .btn {
         opacity: 1;
     }
 
-    .left { left: 10px; }
-    .right { right: 10px; }
 </style>

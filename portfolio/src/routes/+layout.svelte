@@ -23,7 +23,7 @@
 		>
 			Contact Me
 		</a>
-		<a href="/resume/WT_RESUME.pdf" download>
+		<a href="/pdf/WT_RESUME.pdf" download>
 			Download Resume
 		</a>
 	</div>
@@ -112,6 +112,17 @@
 	.navbar a:hover {
 		background: #22b37b;
 	}
+
+	/* @media (max-width: 768px) {
+        .index {
+            flex-direction: column; 
+            gap: 50px;
+        }
+        
+        .index > :global(*) {
+            width: 100%; 
+        }
+    } */
 
 </style>
 

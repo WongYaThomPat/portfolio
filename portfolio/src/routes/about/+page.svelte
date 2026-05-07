@@ -1,27 +1,23 @@
 <script lang="ts">
     import type { PageProps } from './$types';
     let { data }: PageProps = $props();
+    import { fade } from 'svelte/transition';
     import SkillTree from '$lib/components/SkillTree.svelte';
 </script>
 
 
-<div class='container'>
+<div in:fade={{duration: 300}} class='container'>
     <div class='bio'>
         <h2>Hello,</h2>
         <p style="font-size: 18px;">
             Based in Bangkok, Thailand, I am a
-            <span>
-                <a href="education" class="link">
-                    Biomedical Engineering Graduate from Mahidol University
-                </a>
-            </span> who specializes in 
-            <span>
-                <a href="portfolio" class="link">
-                    integrating complex systems to work together and manipulating various forms of abstract data into intuitive visualizations.
-                </a>
-            </span>
+            Biomedical Engineering Graduate from Mahidol University who specializes in 
+            integrating complex systems to work together and manipulating various forms of abstract data into intuitive visualizations.
             My versatility and adaptability allows me to apply my skill to solve problems in multiple field of studies, even those which are non-medical.
-            As you can tell by interacting with the site, my philosophy is to keep my work simple and robust.
+            As you can tell by interacting with the site,
+        </p>
+        <p class="text-2xl" style="color:darkgreen; text-align: center; margin-top: 50px">
+            "my philosophy is to keep my work simple and robust."
         </p>
 
         <h3>Languages</h3>
@@ -65,15 +61,6 @@
     .bio h3 {
         margin-top: 10%;
         font-size: 40px;
-    }
-
-    .link {
-        color: rgb(165, 165, 165);
-        transition: color 0.2s ease;
-    }
-
-    .link:hover {
-        color: rgb(47, 119, 47);
     }
 
     .skill {

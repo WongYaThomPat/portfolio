@@ -1,15 +1,17 @@
 <script lang="ts">
     import type { PageProps } from './$types';
-
+    import { fade } from 'svelte/transition';
     let { data }: PageProps = $props();
 </script>
 
-<div class="timeline-wrapper">
+<div class="timeline-wrapper" in:fade={{duration: 300}}>
     <div class="timeline-line"></div>
     <div class='main-container'>
         <div class='entry'>
             <img src="src/lib/images/ico/swu.png" alt="swu">
-            <p class='banner' style="background: hsl(7, 60%, 85%); color: #333;">
+            <p class='banner' 
+                style="background: hsl(7, 60%, 85%); color: #333;" 
+            >
                 Smart Global Science Major, 
                 Satit Prasarnmit Demonstration School (Secondary) 
             </p>
@@ -23,17 +25,21 @@
             <div style="margin: 16px;">
                 <img src="src/lib/images/ico/cwn-logo.png" alt="cwn">
             </div>
-            <p class='banner' style="background: hsl(141, 40%, 85%); color: #333;">
+            <p class='banner' 
+                style="background: hsl(141, 40%, 85%); color: #333;" 
+            >
                 Internship at Chanwanich co. ltd. as Junior System Integrator
             </p>
             <div class='info'>
-                <h3 class='text-4xl'>June - July 2024</h3>
+                <h3 class='text-3xl'>June - July 2024</h3>
             </div>   
         </div>
 
         <div class='entry'>
             <img src="src/lib/images/ico/mahidol.png" alt="mahidol">
-            <p class='banner' style="background: hsl(219, 40%, 85%); color: #333;">
+            <p class='banner' 
+                style="background: hsl(219, 40%, 85%); color: #333;"
+            >
                 Bachelor Degree in Biomedical Engineering,
                 Mahidol University 
             </p>
@@ -105,4 +111,5 @@
         text-align: center;
         padding: 5%;
     }
+
 </style>
