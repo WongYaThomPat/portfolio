@@ -67,11 +67,11 @@
                 >
                     Robot-Video
                 </a>
-                <a href="https://drive.google.com/file/d/1nZQrSGE8SvZNcedhNtM9q7Z-PEbdyv4e/view?usp=drive_link" 
+                <a href="https://drive.google.com/file/d/13uaZDlkCqemkpIffBEWBmovNdUpCQx3G/view?usp=drive_link" 
                     target="_blank" 
                     rel="noopener noreferrer"
                 >
-                    Full Thesis
+                    Thesis
                 </a>
                 <a href="https://github.com/WongYaThomPat/TELEPALPATION"
                     target="_blank" 
@@ -239,7 +239,7 @@
     .entry > :global(*) {
         flex: 1; 
         gap: 20px;          
-        min-width: 0;
+        min-width: 33%;
     }
 
     .datalog {
