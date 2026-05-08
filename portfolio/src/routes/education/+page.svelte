@@ -1,7 +1,13 @@
 <script lang="ts">
     import type { PageProps } from './$types';
     import { fade } from 'svelte/transition';
+    
+    import swu from '$lib/images/ico/swu.png'
+    import cwn from '$lib/images/ico/cwn-logo.png'
+    import mhd from '$lib/images/ico/mahidol.png'
+
     let { data }: PageProps = $props();
+
 </script>
 
 <div class="timeline-wrapper" in:fade={{duration: 300}}>
@@ -9,7 +15,7 @@
     
     <div class='main-container'>
         <div class='entry'>
-            <img src="src/lib/images/ico/swu.png" alt="swu" class="logo">
+            <img src={swu} alt="swu" class="logo">
             <p class='banner' style="background: hsl(7, 60%, 85%); color: #333;">
                 Smart Global Science Major, <br>
                 Satit Prasarnmit Demonstration School (Secondary) 
@@ -22,7 +28,7 @@
 
         <div class='entry'>
             <div class="logo-container">
-                <img src="src/lib/images/ico/cwn-logo.png" alt="cwn" class="logo">
+                <img src={cwn} alt="cwn" class="logo">
             </div>
             <p class='banner' style="background: hsl(141, 40%, 85%); color: #333;">
                 Internship at Chanwanich co. ltd. <br> as Junior System Integrator
@@ -33,7 +39,7 @@
         </div>
 
         <div class='entry'>
-            <img src="src/lib/images/ico/mahidol.png" alt="mahidol" class="logo">
+            <img src={mhd} alt="mahidol" class="logo">
             <p class='banner' style="background: hsl(219, 40%, 85%); color: #333;">
                 Bachelor Degree in Biomedical Engineering, <br>
                 Mahidol University 

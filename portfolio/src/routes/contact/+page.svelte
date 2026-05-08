@@ -2,13 +2,16 @@
     import type { PageProps } from './$types';
     let { data }: PageProps = $props();
     import { fade } from 'svelte/transition';
+    import phonebg from '$lib/images/contact/phonebg.png'
+    import gmail from '$lib/images/ico/gmail-svgrepo-com.svg'
+    import github from '$lib/images/ico/github-svgrepo-com.svg'
 
     const email : string = 'bossthomya@gmail.com'
 </script>
 
 <div in:fade={{duration:300}} class='main-container'>
     <div class='img-container'>
-        <img src="/src/lib/images/contact/phonebg.png" alt="phone" style="border-radius:2%; width: 100%; height: auto; display: block;">
+        <img src={phonebg} alt="phone" style="border-radius:2%; width: 100%; height: auto; display: block;">
     </div>
     <div class='link-container'>
         <h1 class='title-text'>
@@ -16,13 +19,13 @@
         </h1>
         <ul class="contact-list">
             <li>
-                <img src="/src/lib/images/ico/gmail-svgrepo-com.svg" alt="Email" width="64" height="64" />
+                <img src={gmail} alt="Email" width="64" height="64" />
                 <div class="contact-text">
                     <strong>Email</strong> <span>{email}</span>
                 </div>
             </li>
             <li>
-                <img src="/src/lib/images/ico/github-svgrepo-com.svg" alt="Github" width="64" height="64" />
+                <img src={github} alt="Github" width="64" height="64" />
                 <div class="contact-text">
                     <strong>Github</strong> 
                     <a 
