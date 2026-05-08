@@ -83,6 +83,7 @@
         </div>
         <MediaSlot img_links={telemed_links} />
     </div>
+
     <div class="entry">
         <Viewer model_path="/models/shrimp.glb"/>
         <div class="datalog">
@@ -93,12 +94,12 @@
                 In shrimp harvesting, excessive handling can indirectly lead to stunted growth. 
                 Thus, I designed a compact non-invasive workflow which is comprised of:
             </p>
-            <ul class="list-disc list-outside pl-5" style="text-align: left;">
+            <ul class="list-disc list-outside pl-5">
                 <li>Tiny customized CNN for heatmap detection</li>
                 <li>Classical Computer Vision framework for real world size estimation</li>
             </ul>
             <p style="margin-top:10px">The final results are:</p>
-            <ul class="list-disc list-outside pl-5" style="text-align: left;">
+            <ul class="list-disc list-outside pl-5">
                 <li>Precision: 1.00 | Recall: 0.99 | F1: 1.00</li>
                 <li>Median Length Error: 4.65% | Median Diameter Error: 4.52%</li>
                 <li>Model Size: 510 KB</li>
@@ -121,6 +122,7 @@
         </div>
         <MediaSlot img_links={shrimp_links} />
     </div>
+
     <div class="entry">
         <Viewer model_path="/models/filterhome.glb"/>
         <div class="datalog">
@@ -155,6 +157,7 @@
         </div>
         <MediaSlot img_links={filter_links} />
     </div>
+
     <div class='entry'>
         <div class="datalog">
             <p>2024</p>
@@ -191,15 +194,18 @@
     .gallery {
         display: flex;
         flex-direction: column;
-        padding: 5rem;
-        gap: 10vh; 
+        padding: 5rem 2rem;
+        gap: 10vh;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
     .extras {
-        margin: 30px;
+        margin: 30px 0;
         display: flex;
         flex-direction: row;
-        justify-content: end;
+        justify-content: flex-start;
+        flex-wrap: wrap;
         align-items: center;
         gap: 10px;
     }
@@ -207,20 +213,22 @@
     .extras > a {
         background-color: black;
         color: white;
-        padding: 10px;
+        padding: 10px 15px;
         border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.9rem;
     }
 
     .extras > a:hover {
-        opacity: 70%;
+        opacity: 0.7;
     }
 
     .entry {
         display: flex;
         flex-direction: row;
         justify-content: center; 
-        align-items: center;    
-        gap: 0;
+        align-items: flex-start;    
+        gap: 40px;
         width: 100%;
     }
 
@@ -229,8 +237,9 @@
     }
 
     .entry > :global(*) {
-        flex: 1;           
-        max-width: 600px;  
+        flex: 1; 
+        gap: 20px;          
+        min-width: 0;
     }
 
     .datalog {
@@ -238,21 +247,34 @@
     }
 
     .datalog h2 {
-        font-size: 42px;
+        font-size: clamp(24px, 5vw, 42px);
+        margin: 10px 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1100px) {
         .entry {
-            flex-direction: column; 
-            gap: 50px;
-        }
-        
-        .entry > :global(*) {
-            width: 100%; 
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
+        .entry > :global(*) {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .extras {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .gallery {
+            padding: 2rem 1rem;
+        }
+        
         .entry {
-            margin-top: 60px;
+            margin-top: 40px;
         }
     }
 </style>

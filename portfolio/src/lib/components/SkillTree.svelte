@@ -7,7 +7,12 @@
 
     let hoveredLang = $state<string | null>(null);
 
-    let { width = 900, height = 600 } = $props();
+    let containerWidth = $state(900);
+    let height = $derived(containerWidth);
+    
+    let centerX = $derived(containerWidth / 2);
+    let centerY = $derived(height / 2);
+
     let simulation: d3.Simulation<any, undefined>;
     let nodes: any[] = $state([...data]);
     let lastScrollY = 0;
@@ -53,16 +58,29 @@
     });
 
     $effect(() => {
+        const scaleFactor = 900 / containerWidth;
+    
         simulation = d3.forceSimulation(nodes)
-            .force("charge", d3.forceManyBody().strength(-50))
-            .force("radial", d3.forceRadial(0, width / 2, height / 2).strength(0.012))
-            .force("center", d3.forceCenter(width / 2, height / 2).strength(0.1));
+            .force("charge", d3.forceManyBody().strength(-60 * scaleFactor))
+            .force("radial", d3.forceRadial(0, centerX, centerY).strength(0.012 * scaleFactor))
+            .force("x", d3.forceX(centerX).strength(0.02 * scaleFactor))
+            .force("y", d3.forceY(centerY).strength(0.01 * scaleFactor))
 
         simulation.on("tick", () => {
             nodes = [...nodes];
         });
 
         return () => simulation.stop();
+    });
+
+    $effect(() => {
+        if (simulation) {
+            const scaleFactor = 900 / containerWidth;
+            simulation.force("radial", d3.forceRadial(0, centerX, centerY).strength(0.012 * scaleFactor))
+            simulation.force("x", d3.forceX(centerX).strength(0.02 * scaleFactor));
+            simulation.force("y", d3.forceY(centerY).strength(0.01 * scaleFactor));
+            simulation.alpha(0.3).restart();
+        }
     });
 </script>
 
@@ -76,8 +94,9 @@
         </button>      
     {/each}
 </div>
-<div class='chart-container'>
-    <svg {width} {height}>
+
+<div class='chart-container' bind:clientWidth={containerWidth}>
+    <svg width={containerWidth} {height}>
         {#each nodes as node}
             <g>
                 <circle
@@ -87,8 +106,8 @@
                     cy={node.y}
                     r={
                         hoveredLang === null 
-                        ? node.Value * 8 
-                        : (node.Lang === hoveredLang ? node.Value * 20 : 0)
+                        ? node.Value * (containerWidth < 500 ? 5 : 8) 
+                        : (node.Lang === hoveredLang ? node.Value * (containerWidth < 500 ? 12 : 20) : 0)
                     }
                     fill={node.Color}
                 />
@@ -102,8 +121,8 @@
                     style="
                         user-select: none; 
                         font-size: {
-                            hoveredLang === null ? 5 * node.Value
-                            : (node.Lang === hoveredLang ? 8 * node.Value : 0)
+                            hoveredLang === null ? (containerWidth < 500 ? 3 : 5) * node.Value
+                            : (node.Lang === hoveredLang ? (containerWidth < 500 ? 5 : 8) * node.Value : 0)
                         }px; 
                         fill: white;"
                 >
@@ -116,15 +135,22 @@
 
 <style>
     .lang-container {
-        margin: 1%;
+        margin: 10px 0;
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
     .lang-container button {
-        font-size: 18px;
+        font-size: 16px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: inherit;
+        padding: 5px 10px;
     }
 
     .lang-container button:hover {
@@ -135,6 +161,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: darkseagreen;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+        .lang-container button {
+            font-size: 14px;
+        }
     }
 </style>
