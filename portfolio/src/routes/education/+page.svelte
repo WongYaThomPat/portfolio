@@ -46,7 +46,7 @@
             </p>
             <div class='info'>
                 <h3>2021 - 2025</h3>
-                <p>GPAX : 3.73 (First Class Honour)</p>
+                <p>GPAX : 3.73 (First Class Honors)</p>
             </div>
         </div>
     </div>
