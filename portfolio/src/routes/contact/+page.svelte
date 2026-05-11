@@ -19,11 +19,16 @@
         </h1>
         <ul class="contact-list">
             <li>
-                <img src={gmail} alt="Email" width="64" height="64" />
-                <div class="contact-text">
-                    <strong>Email</strong> <span>{email}</span>
-                </div>
-            </li>
+            <img src={gmail} alt="Email" width="64" height="64" />
+            <div class="contact-text">
+                <strong>Email</strong> 
+                <span>
+                    <a href={`mailto:${email}`} class="email-link">
+                        {email}
+                    </a>
+                </span>
+            </div>
+        </li>
             <li>
                 <img src={github} alt="Github" width="64" height="64" />
                 <div class="contact-text">

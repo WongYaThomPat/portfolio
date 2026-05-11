@@ -1,8 +1,10 @@
 <script>
     import { fade } from 'svelte/transition';
+    import Viewer from "$lib/components/Viewer.svelte";
 </script>
 
 <div in:fade>
+    <Viewer model_path="/models/pibble.glb"/>
     <h2 class="portfolio-title">
         Welcome to my Portfolio.
     </h2>

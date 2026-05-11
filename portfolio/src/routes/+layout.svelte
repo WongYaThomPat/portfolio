@@ -28,6 +28,7 @@
     </header>
 
     <nav class='navbar'>
+        <a href="/">Home</a>
         <a href="about">About</a>
         <a href="portfolio">Portfolio</a>
         <a href="education">Education / Experience</a>
